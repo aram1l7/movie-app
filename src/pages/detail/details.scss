@@ -1,0 +1,95 @@
+@use "../../scss/" as *;
+@import "../../scss/mixin.scss";
+.banner {
+  height: 50vh;
+  @include heroSlide;
+}
+.movie-content {
+  @include flex(flex-start, flex-start);
+  padding: 0 2rem;
+  position: relative;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -12rem;
+
+  &__poster {
+    flex: 1;
+
+    @include mobile {
+      display: none;
+    }
+
+    &__img {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: $border-radius-md;
+      padding-top: 160%;
+    }
+  }
+  &__info {
+    width: 70%;
+    position: relative;
+    padding-left: 2rem;
+
+    @include mobile {
+      width: 100%;
+      padding-left: 0;
+    }
+
+    & > * ~ * {
+      margin-bottom: 2rem;
+    }
+    .title {
+      font-size: 3.5rem;
+      line-height: 1;
+      margin-bottom: 2rem;
+    }
+    .genres {
+      & > * ~ * {
+        margin-left: 0.5rem;
+      }
+
+      &__list {
+        font-weight: 500;
+        padding: 0.5rem 1.5rem;
+        border-radius: $border-radius;
+        background-color: $body-bg;
+        border: 1px solid $white;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.casts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 15px;
+  margin-top: 0.5rem;
+
+  &__item {
+    &__img {
+      padding-top: 160px;
+      background-size: cover;
+      margin-bottom: 0.5rem;
+      border-radius: $border-radius-sm;
+    }
+
+    &__name {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.video {
+  margin-bottom: 3rem;
+  padding: 2rem;
+
+  &__title {
+    margin-bottom: 1.5rem;
+  }
+}
+
+

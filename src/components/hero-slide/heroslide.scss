@@ -1,0 +1,90 @@
+@use "../../scss/" as *;
+
+.hero-slide {
+  margin-bottom: 3rem;
+}
+
+.hero-slide__item {
+  width: 100%;
+  padding: 9rem 0;
+ 
+  @include heroSlide;
+  &__content {
+    position: relative;
+    @include flex(center, center);
+
+    &__info {
+      width: 55%;
+      padding: 0 3rem;
+      position: relative;
+      @include tablet {
+        width: 100%;
+      }
+      & > * ~ * {
+        margin-top: 3rem;
+      }
+      .title {
+        font-weight: 700;
+        line-height: 1;
+        font-size: 5rem;
+
+        @include tablet {
+          font-size: 4rem;
+        }
+      }
+      .overview {
+        font-weight: 700;
+        font-family: system-ui;
+      }
+      .btns > * ~ * {
+        margin-left: 0.5rem;
+      }
+      .btns,
+      .title,
+      .overview {
+        opacity: 0;
+        transform: translateY(-100px);
+        transition: opacity 0.4s ease, transform 0.5s ease;
+      }
+    }
+    &__poster {
+      @include flex(center, flex-start);
+      flex: 1;
+      position: relative;
+
+      img {
+        width: 350px;
+        box-shadow: $box-shadow;
+        border-radius: $border-radius-md;
+        transform: scale(0);
+        transition: transform 0.8s ease;
+      }
+
+      @include tablet {
+        display: none;
+      }
+    }
+  }
+  &.active > &__content > &__content__poster {
+    img {
+      transform: scale(1);
+    }
+  }
+  &.active > &__content > &__content__info {
+    .btns,
+    .title,
+    .overview {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .title{
+      transition-delay: 0.3s,0.3s;
+    }
+    .overview{
+      transition-delay: 0.6s 0.6s;
+    }
+    .btns{
+      transition-delay: 0.8s 0.8s;
+    }
+  }
+}

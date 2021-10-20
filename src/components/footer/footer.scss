@@ -1,0 +1,22 @@
+@use "../../scss/" as *;
+
+.footer {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  background: linear-gradient(0deg, rgba(54, 54, 54, 0.3), rgba(22, 22, 22, 0.3)), url(../../assets/bgj.jpg);
+  background-size: cover;
+  padding: 6rem 2rem;
+
+  &__content {
+    @include flex(center, space-between);
+
+    &__menu {
+      @include flex(center, center);
+      gap: 1rem;
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+  }
+}
