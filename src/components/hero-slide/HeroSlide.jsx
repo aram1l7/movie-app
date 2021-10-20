@@ -24,12 +24,12 @@ const Heroslide = () => {
     };
     getMovies();
   }, []);
-//   let iframe = document.querySelector("iframe");
-//   console.log(iframe);
+
   return (
     <div className="hero-slide">
       <Swiper
-        //  autoplay={{delay:2500, disableOnInteraction: false}}
+        speed={500}
+        autoplay={{ delay: 10000 }}
         modules={[Autoplay]}
         grabCursor={true}
         spaceBetween={0}
@@ -47,7 +47,7 @@ const Heroslide = () => {
 };
 
 const HeroSlideItem = (props) => {
-  let history = useHistory();
+  const history = useHistory();
 
   const item = props.item;
   const setActiveModal = async () => {
